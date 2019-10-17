@@ -1,0 +1,16 @@
+/* You can add global styles to this file, and also import other style files */
+.imageBack{
+
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    height:750px;
+    width:100%;
+    z-index: -1;
+      }
+      
+      .header {
+        overflow: hidden;
+        background-color: #f1bb59;
+        padding: 20px 10px;
+      }

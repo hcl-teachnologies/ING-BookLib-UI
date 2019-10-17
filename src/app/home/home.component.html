@@ -1,0 +1,174 @@
+<!-- <img class="imageBack" src="assets/back.jfif" alt="ing-logo"> -->
+<!-- <div style="width: 39%;
+margin-top: 10px;
+margin-left: 456px;">
+        <input class="form-control" type="text" name="search" [(ngModel)]="searchText" autocomplete="off" placeholder="&#61442;  Start searching for a hero by id or name or country">
+      </div> -->
+     
+      <div class="container">
+          <br><br>
+            <div class= "row">
+             <div class="col-sm-4">
+                        <div class="input-group">
+                                <input type="text" class="form-control" placeholder="Search by book name" [(ngModel)]="searchText">
+                            <div class="input-group-append">
+                                
+                            </div>
+                         </div>
+             </div>
+             <div class="col-sm-4">
+                    <button class="btn btn-secondary" type="button" (click)="searchClick(this.searchText)">
+                            <i class="fas fa-search">Search</i>
+                          </button>
+             </div>
+             <div class="col-sm-4"> Click Here To Donate your Book
+              <button class="btn btn-success" type="button"  routerLink="/donate"> Donate
+                      <!-- <i class="glyphicon glyphicon-search"></i> -->
+                    </button>
+       </div>
+          </div>
+        </div>
+
+       <br>
+       <br>
+        <div class="container">
+         
+          <br>
+          <!-- Nav tabs -->
+          <ul class="nav nav-tabs" role="tablist">
+              <li class="nav-item">
+              <a class="nav-link active" data-toggle="tab" href="#all">All</a>
+            </li>
+            <li class="nav-item" *ngFor="let cat of categoryDetails">
+              <a class="nav-link " data-toggle="tab"  >{{cat.categoryName}}</a>
+            </li>
+              <!-- <li class="nav-item">
+              <a class="nav-link" data-toggle="tab" [attr.href]="#{{cat.categoryId}}">Travel</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" data-toggle="tab" href="#health">Health</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" data-toggle="tab" href="#encyc">Encyclopedia</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" data-toggle="tab" href="#bio">Biography & Science</a>
+            </li> -->
+          </ul>
+        
+          <!-- Tab panes -->
+          <div class="tab-content">
+            <div id="all" class="container tab-pane active"><br>
+              <div class="card-group" >
+                <div class="container">
+                <div class= "row">
+                <div class="col-lg-3 card"  *ngFor="let book of bookDetails"  style="margin:10px; background-color: #cec9c9 !important;">
+                    <img class="card-img-top" src="assets/book1.png" alt="Card image" style="width:40%">
+                    <div class="card-body">
+                            <div> Book NAme: {{book.bookName}}</div>
+            
+                            <div>Availability: {{book.bookStatus}}</div>
+                      <a href="#" class="btn btn-primary" (click)="borrowBook(book.bookId)">Borrow</a>
+                    </div>
+                   </div>                  
+                </div>
+            </div>
+                </div>
+            </div>
+            <div id="{{cat.categoryID}}" class="container tab-pane fade"><br>
+         
+              <div class="card-group" >
+                <div class="container">
+                <div class= "row">
+                <div class="col-lg-3 card" style="margin:10px; background-color: #cec9c9 !important;">
+                    <img class="card-img-top" src="assets/book1.png" alt="Card image" style="width:40%">
+                    <div class="card-body">
+                            <div> Book NAme: {{book.bookName}}</div>
+                            <div>Availability: {{book.bookStatus}}</div>
+                      <a href="#" class="btn btn-primary" (click)="borrowBook(book.bookId)">Borrow</a>
+                    </div>
+                    </div>                                   
+                  </div>
+            </div>
+              
+            </div>
+            </div>
+            <div id="health" class="container tab-pane fade"><br>
+             
+              <div class="card-group" >
+                <div class="container">
+                <div class= "row">
+                <div class="col-lg-3 card" style="margin:10px; background-color: #cec9c9 !important;">
+                    <img class="card-img-top" src="assets/book1.png" alt="Card image" style="width:40%">
+                    <div class="card-body">
+                            <div> Book NAme: {{book.bookName}}</div>
+                            <div>Availability: {{book.bookStatus}}</div>
+                      <a href="#" class="btn btn-primary" (click)="borrowBook(book.bookId)">Borrow</a>
+                    </div>
+                   </div>  
+                </div>                  
+               </div>
+            </div>
+               
+            </div>
+
+            <div id="encyc" class="container tab-pane fade"><br>
+             
+              <div class="card-group" >
+                <div class="container">
+                <div class= "row">
+                <div class="col-lg-3 card" style="margin:10px; background-color: #cec9c9 !important;">
+                    <img class="card-img-top" src="assets/book1.png" alt="Card image" style="width:40%">
+                    <div class="card-body">
+                            <div> Book NAme: {{book.bookName}}</div>
+                            <div>Availability: {{book.bookStatus}}</div>
+                      <a href="#" class="btn btn-primary" (click)="borrowBook(book.bookId)">Borrow</a>
+                    </div>
+                   </div>  
+                </div>                  
+               </div>
+            </div>
+               
+            </div>
+
+            <div id="bio" class="container tab-pane fade"><br>
+             
+              <div class="card-group" >
+                <div class="container">
+                <div class= "row">
+                <div class="col-lg-3 card" style="margin:10px; background-color: #cec9c9 !important;">
+                    <img class="card-img-top" src="assets/book1.png" alt="Card image" style="width:40%">
+                    <div class="card-body">
+                            <div> Book NAme: {{book.bookName}}</div>
+                            <div>Availability: {{book.bookStatus}}</div>
+                      <a href="#" class="btn btn-primary" (click)="borrowBook(book.bookId)">Borrow</a>
+                    </div>
+                   </div>  
+                </div>                  
+               </div>
+            </div>
+               
+            </div>
+          </div>
+          
+        </div>
+<!-- <div class="card-group" style="margin-top:125px">
+    <div class="container">
+    <div class= "row">
+    <div class="col-lg-3 card" *ngFor="let book of bookDetails" style="margin:10px; background-color: #cec9c9 !important;">
+        <img class="card-img-top" src="assets/book1.png" alt="Card image" style="width:40%">
+        <div class="card-body">
+                <div> Book NAme: {{book.bookName}}</div>
+
+                <div>Availability: {{book.bookStatus}}</div>
+          <a href="#" class="btn btn-primary" (click)="borrowBook(book.bookId)">Borrow</a>
+        </div>
+      
+      </div>
+      
+         
+    </div>
+</div>
+    </div> -->
+    
+            

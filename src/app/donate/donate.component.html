@@ -1,0 +1,52 @@
+<img class="imageBack" src="assets/donate.jfif" alt="ing-logo">
+
+
+<div class="container col-md-4 login-form" style="border-radius: 0.5em;
+margin: 0 auto;
+display: block;
+background-color: rgba(249, 243, 247, 0.88) !important;
+padding: 6em;
+margin-right: 80px;
+margin-top:50px"
+>
+
+<h2 style="margin: 0 auto; display: block; margin-top: -1em;
+margin-bottom: 1em;">Donate Your Book</h2>
+
+ <form [formGroup]="DonateForm" (ngSubmit)="onSubmit()">
+  <div class="form-group">
+      <label for="bookName">Book Name:</label>
+      <input type="text" formControlName="bookName" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.bookName.errors }" />
+      <div *ngIf="submitted && f.loginId.errors" class="invalid-feedback">
+          <div *ngIf="f.bookName.errors.required">Book Name is required</div>
+      </div>
+  </div>
+  <div class="form-group">
+      <label for="Author">Author:</label>
+      <input type="text" formControlName="Author" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.Author.errors }" />
+      <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+          <div *ngIf="f.Author.errors.required">Author is required</div>
+      </div>
+  </div>
+ 
+<div class="form-group" >
+    <label class="" for="Category">Category</label>
+    <div class="col-sm-6 col-md-4">
+      <select id="company" class="form-control" style="width: 150%;" formControlName="Category">
+        <!-- <option *ngFor ="let cate of dropcatdetails; let i=index;" >{{cate.categoryName[i]}}</option> -->
+        <!-- <option>medium</option>
+        <option>large</option> -->
+       
+        <option>Select</option>
+        <option *ngFor="let cate of categoryDetails" [value]="cate.categoryName">
+                {{cate.categoryName}}
+            </option>
+      </select> 
+    </div>
+  </div>
+  <div class="form-group">
+      <button type="submit" class="btn btn-primary">Donate</button>
+      
+  </div>
+</form>
+</div>
